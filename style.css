@@ -1,0 +1,72 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+:root {
+  --color-white: #ffffff;
+  --color-light-grey: #ccc;
+  --color-light-blue: #69a4cc;
+  --color-black: #000000;
+
+  --size-border-radius: 6px;
+}
+
+header {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 15px;
+  margin: 0 0 10px 0;
+}
+
+#main_container {
+  width: 590px;
+  margin: 0 auto;
+  border: 1px solid var(--color-black);
+  padding: 10px;
+}
+
+#input_container {
+  margin: 10px 0 10px 0;
+}
+
+#description {
+  height: 70px;
+  line-height: 22px;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+#input_number {
+  width: 250px;
+  margin: 0 auto;
+}
+
+#swing_button {
+  background-color: var(--color-light-blue);
+  border-radius: var(--size-border-radius);
+  border: none;
+  color: var(--color-white);
+  font-size: 1rem;
+  padding: 1px;
+}
+/* swing 글자를 줄이고 싶다 */
+
+#output_container {
+  border: 1px solid green;
+  text-align: center;
+}
+
+#output_result {
+  margin-top: 10px;
+}
+
+.result_list {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid var(--color-light-grey);
+  padding: 16px 20px;
+  margin-top: 10px;
+}
+/* 왜 text-align으로 하면 ul의 *가 표시되는 걸까 */
