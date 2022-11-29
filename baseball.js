@@ -20,4 +20,31 @@ const checkNotANumber = function (arr) {
   if (arr.some(checkCondition)) return true;
 };
 
-export { makeInputArray, isValidInput };
+const decideResult = function (answer, arr) {
+  const condition = (element) => answer.indexOf(element) !== -1;
+  if (arr.some(condition)) return countStrikeOrBall(answer, arr);
+  return printFourBallResult();
+};
+
+const printFourBallResult = function () {
+  return `포볼`;
+};
+
+const countStrikeOrBall = function (answer, arr) {
+  let strikeCount = 0;
+  let ballCount = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (answer[i] === arr[i]) strikeCount += 1;
+    if (answer[i] !== arr[i] && answer.indexOf(arr[i]) !== -1) ballCount += 1;
+  }
+  return printStrikeOrBallResult(strikeCount, ballCount);
+};
+
+const printStrikeOrBallResult = function (strike, ball) {
+  if (strike === 0 && ball !== 0) return `${ball} 볼`;
+  if (strike !== 3 && ball === 0) return `${strike} 스트라이크`;
+  if (strike === 3) return finishMessage;
+  return `${strike} 스크라이크 ${ball} 볼`;
+};
+
+export { makeInputArray, isValidInput, decideResult };

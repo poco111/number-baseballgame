@@ -1,4 +1,4 @@
-export { makeInputArray, isValidInput } from './baseball.js';
+export { makeInputArray, isValidInput, decideResult } from './baseball.js';
 
 const inputNumber = document.querySelector('#input_form');
 const swingButton = document.querySelector('#swing_button');
