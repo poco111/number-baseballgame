@@ -1,4 +1,5 @@
-export { makeInputArray, isValidInput, decideResult } from './baseball.js';
+import { makeInputArray, isValidInput, decideResult } from './baseball.js';
+import { finishMessage } from './const.js';
 
 const inputNumber = document.querySelector('#input_form');
 const swingButton = document.querySelector('#swing_button');
@@ -16,6 +17,20 @@ const onClickSwingButtonHandler = function () {
     const result = decideResult(answer, value);
     render(value, result);
   }
+};
+
+const render = (value, result) => {
+  const liTemplate = `<li class="result_list"><div>입력 : ${value} 결과 : ${result}</div></li>`;
+  resultList.innerHTML += liTemplate;
+
+  inputNumber.value = '';
+  inputNumber.focus();
+  if (result === finishMessage) return endGame();
+};
+
+const endGame = function () {
+  swingButton.disabled = true;
+  inputNumber.disabled = true;
 };
 
 const setEventListener = function () {

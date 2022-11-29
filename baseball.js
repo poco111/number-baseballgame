@@ -1,12 +1,14 @@
+import { resultComment, finishMessage, errorMessage } from './const.js';
+
 const makeInputArray = function (input) {
   const InputArray = input.split('').map((e) => Number(e));
   return InputArray;
 };
 
 const isValidInput = function (arr) {
-  if (checkNotANumber(arr)) return alert(`숫자가 아닌 내용이 입력되었습니다.`);
-  if (arr.length !== 3) return alert(`3자리가 아닌 수가 입력되었습니다.`);
-  if (checkDuplicatedInput(arr)) return alert(`중복된 숫자가 있습니다.`);
+  if (checkNotANumber(arr)) return alert(errorMessage.NotANumber);
+  if (arr.length !== 3) return alert(errorMessage.lengthError);
+  if (checkDuplicatedInput(arr)) return alert(errorMessage.duplicate);
   return true;
 };
 
@@ -27,7 +29,7 @@ const decideResult = function (answer, arr) {
 };
 
 const printFourBallResult = function () {
-  return `포볼`;
+  return resultComment.fourBall;
 };
 
 const countStrikeOrBall = function (answer, arr) {
@@ -41,10 +43,10 @@ const countStrikeOrBall = function (answer, arr) {
 };
 
 const printStrikeOrBallResult = function (strike, ball) {
-  if (strike === 0 && ball !== 0) return `${ball} 볼`;
-  if (strike !== 3 && ball === 0) return `${strike} 스트라이크`;
+  if (strike === 0 && ball !== 0) return `${ball} ${resultComment.ball}`;
+  if (strike !== 3 && ball === 0) return `${strike} ${resultComment.strike}`;
   if (strike === 3) return finishMessage;
-  return `${strike} 스크라이크 ${ball} 볼`;
+  return `${strike} ${resultComment.strike} ${ball} ${resultComment.ball}`;
 };
 
 export { makeInputArray, isValidInput, decideResult };
